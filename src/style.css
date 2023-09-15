@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+current-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 20px;
+}
+.currentTime {
+  width: fit-content;
+  padding: 15px 20px;
+  background-color: burlywood;
+  border-radius: 15px;
+  transition: 0.2s;
+}
+.currentTime:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.currentTime__title {
+  font-weight: bold;
+}
