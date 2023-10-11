@@ -4,11 +4,11 @@ class CurrentTime extends HTMLElement {
   }
 
   attributeChangedCallback(attr, oldVal, newVal) {
-    if(attr === "format"){
-        this.format = newVal;
+    if (attr === "format") {
+      this.format = newVal;
     }
-    if(this.$title){
-        this.render();
+    if (this.$title) {
+      this.render();
     }
   }
 
@@ -30,15 +30,13 @@ class CurrentTime extends HTMLElement {
 
   render() {
     this.$title.innerHTML = this.format === "utc" ? "Heure UTC" : "Heure locale";
-    this.renderTime();
+    this.$title.innerHTML += this.lang === "fr" ? " (langue: fr)" : "";
   }
 
   renderTime() {
     const date = new Date();
-    this.$time.innerHTML =
-      this.format === "utc" ? date.toUTCString() : date.toLocaleString();
+    this.$time.innerHTML = this.format === "utc" ? date.toUTCString() : date.toLocaleString();
     this.$time.setAttribute("datetime", date.toISOString());
-    this.rendered = true;
   }
 }
 

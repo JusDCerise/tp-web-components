@@ -5,11 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./src/current-time.js" defer></script>
+    <!-- <script src="./src/screen-size.js" defer></script> -->
+    <script src="./src/custom-template.js" defer></script>
     <link rel="stylesheet" href="./src/style.css" />
     <title>TP Web Component</title>
   </head>
   <body>
+    <screen-size format="px"></screen-size>
     <current-time></current-time>
-    <current-time format="utc"></current-time>
+    <current-time format="utc" lang="fr"></current-time>
+    <template id="custom-details">
+      <style>
+        details {
+          width: fit-content;
+          background: #101001;
+          padding: 8px 15px;
+          border-radius: 5px;
+          color: white;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        ::slotted(ul) {
+          color: red;
+          margin-left: 40px !important;
+        }
+      </style>
+      <details>
+        <summary><slot name="summary"></slot></summary>
+        <div><slot name="content"></slot></div>
+      </details>
+    </template>
+    <custom-details>
+      <span slot="summary">Les 3 technologies des Web Components</span>
+      <ul slot="content">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </custom-details>
   </body>
 </html>
